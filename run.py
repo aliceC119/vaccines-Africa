@@ -12,11 +12,26 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Vaccines - Africa (2020-2024)')
 
-livessaved = SHEET.worksheet('livessaved')
 
-data = livessaved.get_all_values()
 
-print(data)
+def get_livessaved_data():
+    """
+    Get lives saved figures input from the user.
+    """
+   
+    print("Please enter lives saved data from the last year.")
+    print("Data should be eight numbers, separated by commas.")
+    print("Example: 100,200,300,400,500,600,700,800\n")
+
+    data_str = input("Enter your lives saved data here: ")
+    print(f"The data provided is {data_str}")
+
+get_livessaved_data()
+    
+    
+
+
+
 
 
 
